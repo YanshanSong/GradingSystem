@@ -1,12 +1,16 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class Main extends JFrame {
+public class GradingSystem extends JFrame {
 
 	private JPanel contentPane;
+	private Welcome welcome;
+	private MainScreen mainScreen;
 
 	/**
 	 * Launch the application.
@@ -15,7 +19,7 @@ public class Main extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Main frame = new Main();
+					GradingSystem frame = new GradingSystem();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -27,7 +31,7 @@ public class Main extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Main() {
+	public GradingSystem() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// set the frame centered
@@ -41,6 +45,17 @@ public class Main extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new CardLayout(0, 0));
+
+		getContentPane().add(welcome = new Welcome());
+		getContentPane().add(mainScreen = new MainScreen());
+
+		welcome.getLoginButton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                welcome.setVisible(false);
+                mainScreen.setVisible(true);
+            }
+        });
 	}
 
 }
