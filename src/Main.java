@@ -7,6 +7,12 @@ import javax.swing.border.EmptyBorder;
 public class Main extends JFrame {
 
 	private JPanel contentPane;
+	private Welcome welcome;
+	private TaskView taskView;
+	private GradingView gradingView;
+	private NewCourseView newCourseView;
+	private NewTemplateView newTemplateView;
+	private StudentView studentView;
 
 	/**
 	 * Launch the application.
@@ -41,6 +47,17 @@ public class Main extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new CardLayout(0, 0));
+		
+		getContentPane().add(gradingView = new GradingView());
+		getContentPane().add(studentView = new StudentView());
+		getContentPane().add(newTemplateView = new NewTemplateView());
+		getContentPane().add(newCourseView = new NewCourseView());
+		
+		
+		
+		getContentPane().add(taskView = new TaskView());
+		
+		
 	}
 
 }
