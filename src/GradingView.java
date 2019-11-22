@@ -1,6 +1,7 @@
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
@@ -10,7 +11,6 @@ import javax.swing.JButton;
 
 public class GradingView extends JPanel {
 	private JTextField txtScore;
-	private JTable table;
 
 	/**
 	 * Create the panel.
@@ -71,9 +71,16 @@ public class GradingView extends JPanel {
 		btnNext.setBounds(524, 385, 96, 28);
 		add(btnNext);
 		
-		table = new JTable();
-		table.setBounds(87, 238, 153, 197);
-		add(table);
+		
+		String[] header1 = {"Name", "UID"};
+		String[][] data1 = {};
+
+		Table table = new Table(header1, data1);
+		JScrollPane jScrollPane1 = table.generateTable();
+		jScrollPane1.setBounds(87, 238, 153, 197);
+
+		add(jScrollPane1);
+		
 
 	}
 }

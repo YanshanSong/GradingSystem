@@ -1,4 +1,5 @@
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JTable;
@@ -6,8 +7,6 @@ import javax.swing.JButton;
 
 public class NewTemplateView extends JPanel {
 	private JTextField txtName;
-	private JTable table;
-	private JTable table_1;
 
 	/**
 	 * Create the panel.
@@ -25,9 +24,24 @@ public class NewTemplateView extends JPanel {
 		lblTasks.setBounds(69, 103, 61, 16);
 		add(lblTasks);
 		
-		table = new JTable();
-		table.setBounds(69, 161, 184, 183);
-		add(table);
+		String[] header1 = {"Name", "%"};
+		String[][] data1 = {};
+
+		Table table = new Table(header1, data1);
+		JScrollPane jScrollPane1 = table.generateTable();
+		jScrollPane1.setBounds(69, 161, 184, 183);
+
+		add(jScrollPane1);
+		
+		String[] header2 = {"Name", "%"};
+		String[][] data2 = {};
+
+		Table table2 = new Table(header2, data2);
+		JScrollPane jScrollPane2 = table2.generateTable();
+		jScrollPane2.setBounds(446, 156, 195, 188);
+
+		add(jScrollPane2);
+		
 		
 		JButton btnAddTask = new JButton("Add Task");
 		btnAddTask.setBounds(82, 383, 117, 29);
@@ -49,9 +63,6 @@ public class NewTemplateView extends JPanel {
 		lblSubtasks.setBounds(456, 103, 61, 16);
 		add(lblSubtasks);
 		
-		table_1 = new JTable();
-		table_1.setBounds(446, 156, 195, 188);
-		add(table_1);
 		
 		JButton btnAddSubtask = new JButton("Add Subtask");
 		btnAddSubtask.setBounds(486, 383, 117, 29);
