@@ -11,6 +11,7 @@ public class Welcome extends JPanel {
 	 * Create the panel.
 	 */
 	public Welcome() {
+		setBackground(Color.WHITE);
 		setBounds(0, 0, 1200, 800);
 		setLayout(null);
 		

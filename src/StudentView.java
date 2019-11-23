@@ -4,6 +4,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import java.awt.Color;
 
 public class StudentView extends JPanel {
 	private JTextField txtComment;
@@ -14,6 +15,7 @@ public class StudentView extends JPanel {
 	 * Create the panel.
 	 */
 	public StudentView() {
+		setBackground(Color.WHITE);
 		setLayout(null);
 		
 		backButton = new JButton("Back");

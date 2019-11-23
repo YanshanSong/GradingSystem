@@ -22,6 +22,7 @@ public class CourseView extends JPanel {
 	 * Create the panel.
 	 */
 	public CourseView() {
+		setBackground(Color.WHITE);
 		setBounds(0, 0, 1200, 800);
 		setLayout(null);
 
@@ -71,7 +72,7 @@ public class CourseView extends JPanel {
 		newTaskButton.setBounds(614, 25, 117, 29);
 		add(newTaskButton);
 		
-		starsButton = new JButton("Stars");
+		starsButton = new JButton("Stats");
 		starsButton.setBounds(751, 25, 117, 29);
 		add(starsButton);
 		

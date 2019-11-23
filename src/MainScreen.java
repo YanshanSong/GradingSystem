@@ -21,6 +21,7 @@ public class MainScreen extends JPanel {
 	 * Create the panel.
 	 */
 	public MainScreen() {
+		setBackground(Color.WHITE);
 		setBounds(0, 0, 1200, 800);
 		setLayout(null);
 

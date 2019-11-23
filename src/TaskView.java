@@ -2,6 +2,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.Color;
 
 public class TaskView extends JPanel {
 	private JTextField txtSomething;
@@ -14,6 +15,7 @@ public class TaskView extends JPanel {
 	 * Create the panel.
 	 */
 	public TaskView() {
+		setBackground(Color.WHITE);
 		setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Name");

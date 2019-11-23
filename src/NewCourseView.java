@@ -3,6 +3,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
+import java.awt.Color;
 
 public class NewCourseView extends JPanel {
 
@@ -10,6 +11,7 @@ public class NewCourseView extends JPanel {
 	 * Create the panel.
 	 */
 	public NewCourseView() {
+		setBackground(Color.WHITE);
 		setLayout(null);
 		
 		JComboBox comboBox = new JComboBox();

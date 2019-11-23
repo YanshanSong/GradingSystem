@@ -6,6 +6,7 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
+import java.awt.Color;
 
 public class GradingView extends JPanel {
 	private JTextField txtScore;
@@ -14,6 +15,7 @@ public class GradingView extends JPanel {
 	 * Create the panel.
 	 */
 	public GradingView() {
+		setBackground(Color.WHITE);
 		setLayout(null);
 		
 		JLabel lblSortingOptions = new JLabel("Sorting Options");

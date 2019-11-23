@@ -4,6 +4,7 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JButton;
+import java.awt.Color;
 
 public class NewTemplateView extends JPanel {
 	private JTextField txtName;
@@ -19,6 +20,7 @@ public class NewTemplateView extends JPanel {
 	 * Create the panel.
 	 */
 	public NewTemplateView() {
+		setBackground(Color.WHITE);
 		setLayout(null);
 		
 		txtName = new JTextField();

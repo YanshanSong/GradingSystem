@@ -3,6 +3,7 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
+import java.awt.Color;
 
 public class Login extends JPanel {
 	private JButton loginInButton;
@@ -14,6 +15,7 @@ public class Login extends JPanel {
 	 * Create the panel.
 	 */
 	public Login() {
+		setBackground(Color.WHITE);
 		setBounds(0, 0, 1200, 800);
 		setLayout(null);
 		
