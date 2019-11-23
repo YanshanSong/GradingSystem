@@ -1,5 +1,3 @@
-import java.awt.Toolkit;
-
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -13,13 +11,7 @@ public class Welcome extends JPanel {
 	 * Create the panel.
 	 */
 	public Welcome() {
-		setForeground(Color.BLUE);
-		// set the frame centered
-		int screenWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
-		int screenHeight = Toolkit.getDefaultToolkit().getScreenSize().height;
-		int width = 1200;
-		int height = 800;
-		setBounds(screenWidth/2 - width/2, screenHeight/2 - height/2, width, height);
+		setBounds(0, 0, 1200, 800);
 		setLayout(null);
 		
 		JLabel label = new JLabel("Welcome");

@@ -8,6 +8,13 @@ import javax.swing.JButton;
 public class NewTemplateView extends JPanel {
 	private JTextField txtName;
 
+	private JButton addTaskButton;
+	private JButton deleteTaskButton;
+	private JButton backButton;
+	private JButton saveButton;
+	private JButton addSubtaskButton;
+	private JButton deleteTask1Button;
+
 	/**
 	 * Create the panel.
 	 */
@@ -41,37 +48,39 @@ public class NewTemplateView extends JPanel {
 		jScrollPane2.setBounds(446, 156, 195, 188);
 
 		add(jScrollPane2);
+
+		addTaskButton = new JButton("Add Task");
+		addTaskButton.setBounds(82, 383, 117, 29);
+		add(addTaskButton);
 		
+		deleteTaskButton = new JButton("Delete Task");
+		deleteTaskButton.setBounds(82, 440, 117, 29);
+		add(deleteTaskButton);
 		
-		JButton btnAddTask = new JButton("Add Task");
-		btnAddTask.setBounds(82, 383, 117, 29);
-		add(btnAddTask);
+		backButton = new JButton("Back");
+		backButton.setBounds(446, 44, 117, 29);
+		add(backButton);
 		
-		JButton btnDeleteTask = new JButton("Delete Task");
-		btnDeleteTask.setBounds(82, 440, 117, 29);
-		add(btnDeleteTask);
-		
-		JButton btnBack = new JButton("Back");
-		btnBack.setBounds(446, 44, 117, 29);
-		add(btnBack);
-		
-		JButton btnSave = new JButton("Save");
-		btnSave.setBounds(575, 44, 117, 29);
-		add(btnSave);
+		saveButton = new JButton("Save");
+		saveButton.setBounds(575, 44, 117, 29);
+		add(saveButton);
 		
 		JLabel lblSubtasks = new JLabel("SubTasks");
 		lblSubtasks.setBounds(456, 103, 61, 16);
 		add(lblSubtasks);
-		
-		
-		JButton btnAddSubtask = new JButton("Add Subtask");
-		btnAddSubtask.setBounds(486, 383, 117, 29);
-		add(btnAddSubtask);
-		
-		JButton btnDeleteTask_1 = new JButton("Delete Task");
-		btnDeleteTask_1.setBounds(486, 440, 117, 29);
-		add(btnDeleteTask_1);
 
+		addSubtaskButton = new JButton("Add Subtask");
+		addSubtaskButton.setBounds(486, 383, 117, 29);
+		add(addSubtaskButton);
+		
+		deleteTask1Button = new JButton("Delete Task");
+		deleteTask1Button.setBounds(486, 440, 117, 29);
+		add(deleteTask1Button);
+
+	}
+
+	public JButton getBackButton() {
+		return backButton;
 	}
 
 }

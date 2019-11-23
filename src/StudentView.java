@@ -8,15 +8,17 @@ import javax.swing.JTextField;
 public class StudentView extends JPanel {
 	private JTextField txtComment;
 
+	private JButton backButton;
+
 	/**
 	 * Create the panel.
 	 */
 	public StudentView() {
 		setLayout(null);
 		
-		JButton btnBack = new JButton("Back");
-		btnBack.setBounds(522, 32, 117, 29);
-		add(btnBack);
+		backButton = new JButton("Back");
+		backButton.setBounds(522, 32, 117, 29);
+		add(backButton);
 		
 		JLabel lblList = new JLabel("List");
 		lblList.setBounds(125, 111, 61, 16);
@@ -50,14 +52,16 @@ public class StudentView extends JPanel {
 		add(txtComment);
 		txtComment.setColumns(10);
 		
-		JButton btnPrev = new JButton("Prev");
-		btnPrev.setBounds(462, 309, 93, 29);
-		add(btnPrev);
+		JButton prevButton = new JButton("Prev");
+		prevButton.setBounds(462, 309, 93, 29);
+		add(prevButton);
 		
-		JButton btnNext = new JButton("Next");
-		btnNext.setBounds(553, 309, 86, 29);
-		add(btnNext);
-
+		JButton nextButton = new JButton("Next");
+		nextButton.setBounds(553, 309, 86, 29);
+		add(nextButton);
 	}
 
+	public JButton getBackButton() {
+		return backButton;
+	}
 }

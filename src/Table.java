@@ -9,8 +9,8 @@ public class Table {
     private Object[][] data;
     DefaultTableModel model;
 
-    public Table(String[] hearder, String[][] data) {
-        this.header = hearder;
+    public Table(String[] header, String[][] data) {
+        this.header = header;
         this.data = data;
     }
 
