@@ -28,7 +28,10 @@ public class StudentView extends JPanel {
 		
 		
 		String[] header1 = {"Name", "ID", "Comment"};
-		String[][] data1 = {};
+		String[][] data1 = {
+				{"Adam", "U12345678", "Excellent Student"},
+				{"Alice", "U45674563", "Good Student"},
+				{"Bob", "U46786345", "Not Bad Student"}};
 
 		Table table = new Table(header1, data1);
 		JScrollPane jScrollPane1 = table.generateTable();
@@ -39,7 +42,7 @@ public class StudentView extends JPanel {
 		JLabel lblStudentView = new JLabel("Student View");
 		lblStudentView.setBounds(850, 110, 101, 16);
 		add(lblStudentView);
-		
+				
 		JLabel lblName = new JLabel("Name");
 		lblName.setBounds(850, 170, 61, 16);
 		add(lblName);
