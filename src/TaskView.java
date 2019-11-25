@@ -57,23 +57,23 @@ public class TaskView extends JPanel {
 		add(txtDec);
 		
 		JLabel lblActive = new JLabel("ACTIVE");
-		lblActive.setBounds(558, 48, 89, 16);
+		lblActive.setBounds(800, 48, 89, 16);
 		add(lblActive);
 		
 		JButton btnModify = new JButton("Modify");
-		btnModify.setBounds(44, 465, 117, 29);
+		btnModify.setBounds(44, 500, 117, 29);
 		add(btnModify);
 		
 		JButton btnShowGraded = new JButton("Show Graded");
-		btnShowGraded.setBounds(317, 465, 117, 29);
+		btnShowGraded.setBounds(422, 500, 117, 29);
 		add(btnShowGraded);
 		
 		JButton btnGrade = new JButton("Grade");
-		btnGrade.setBounds(555, 465, 117, 29);
+		btnGrade.setBounds(800, 500, 117, 29);
 		add(btnGrade);
 		
 		backButton = new JButton("Back");
-		backButton.setBounds(570, 7, 117, 29);
+		backButton.setBounds(800, 7, 117, 29);
 		add(backButton);
 
 	}
