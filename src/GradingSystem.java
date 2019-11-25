@@ -2,8 +2,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 public class GradingSystem extends JFrame {
@@ -22,7 +21,7 @@ public class GradingSystem extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public GradingSystem() {
+	public GradingSystem() throws Exception {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// set the frame centered

@@ -27,7 +27,7 @@ public class CourseView extends JPanel {
 		setLayout(null);
 
 		String[] header1 = {"Name", "Deadline"};
-		String[][] data1 = {{"HW2", "12/01/2019"}};
+		String[][] data1 = {{"HW4", "12/20/2019"}};
 
 		table1 = new Table(header1, data1);
 		JScrollPane jScrollPane1 = table1.generateTable();
@@ -35,7 +35,7 @@ public class CourseView extends JPanel {
 		add(jScrollPane1);
 
 		String[] header2 = {"Name", "Deadline"};
-		String[][] data2 = {{"HW1", "11/20/2019"}};
+		String[][] data2 = {{"HW1", "9/20/2019"}, {"HW2", "10/20/2019"}, {"HW3", "11/20/2019"}};
 
 		table2 = new Table(header2, data2);
 		JScrollPane jScrollPane2 = table2.generateTable();

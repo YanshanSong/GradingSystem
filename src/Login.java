@@ -20,32 +20,32 @@ public class Login extends JPanel {
 		setLayout(null);
 		
 		textField = new JTextField();
-		textField.setBounds(610, 300, 180, 30);
+		textField.setBounds(610, 320, 180, 30);
 		add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblUserName = new JLabel("Username:");
-		lblUserName.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
-		lblUserName.setBounds(410, 300, 115, 26);
+		lblUserName.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
+		lblUserName.setBounds(410, 320, 115, 26);
 		add(lblUserName);
 		
 		JLabel lblPassword = new JLabel("Password:");
-		lblPassword.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
-		lblPassword.setBounds(410, 400, 96, 16);
+		lblPassword.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
+		lblPassword.setBounds(410, 410, 96, 16);
 		add(lblPassword);
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(610, 395, 180, 30);
+		textField_1.setBounds(610, 410, 180, 30);
 		add(textField_1);
 		
 		loginInButton = new JButton("Login In");
-		loginInButton.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		loginInButton.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
 		loginInButton.setBounds(510, 496, 180, 50);
 		add(loginInButton);
 		
 		changePWDButton = new JButton("Change Password");
-		changePWDButton.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		changePWDButton.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
 		changePWDButton.setBounds(510, 576, 180, 50);
 		add(changePWDButton);
 	}
