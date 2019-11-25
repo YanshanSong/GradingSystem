@@ -163,7 +163,7 @@ public class GradingSystem extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				newTemplateView.setVisible(false);
-				courseView.setVisible(true);
+				mainScreen.setVisible(true);
 			}
 		});
 

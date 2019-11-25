@@ -1,8 +1,5 @@
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
+import javax.swing.*;
 import java.awt.Font;
-import javax.swing.JButton;
 import java.awt.Color;
 
 public class Login extends JPanel {
@@ -23,6 +20,13 @@ public class Login extends JPanel {
 		textField.setBounds(610, 320, 180, 30);
 		add(textField);
 		textField.setColumns(10);
+
+		String imagePath = "/image/bank.png";
+		ImageIcon imageIcon = new ImageIcon(imagePath);
+		JLabel label = new JLabel();
+		label.setIcon(imageIcon);
+		label.setBounds(200, 200, 200, 200);
+		add(label);
 		
 		JLabel lblUserName = new JLabel("Username:");
 		lblUserName.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
