@@ -47,7 +47,7 @@ public class NewTemplateView extends JPanel {
 
 		Table table2 = new Table(header2, data2);
 		JScrollPane jScrollPane2 = table2.generateTable();
-		jScrollPane2.setBounds(800, 156, 400, 450);
+		jScrollPane2.setBounds(750, 161, 400, 450);
 
 		add(jScrollPane2);
 
@@ -68,15 +68,15 @@ public class NewTemplateView extends JPanel {
 		add(saveButton);
 		
 		JLabel lblSubtasks = new JLabel("SubTasks");
-		lblSubtasks.setBounds(800, 103, 61, 16);
+		lblSubtasks.setBounds(750, 103, 61, 16);
 		add(lblSubtasks);
 
 		addSubtaskButton = new JButton("Add Subtask");
-		addSubtaskButton.setBounds(870, 650, 117, 29);
+		addSubtaskButton.setBounds(815, 650, 117, 29);
 		add(addSubtaskButton);
 		
 		deleteTask1Button = new JButton("Delete Subtask");
-		deleteTask1Button.setBounds(1040, 650, 140, 29);
+		deleteTask1Button.setBounds(985, 650, 140, 29);
 		add(deleteTask1Button);
 
 	}
