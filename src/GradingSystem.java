@@ -24,6 +24,8 @@ public class GradingSystem extends JFrame {
 	public GradingSystem() throws Exception {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+		// javax.swing.UIManager.setLookAndFeel("com.jtattoo.plaf.mcwin.McWinLookAndFeel");
+
 		// set the frame centered
 		int screenWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
 		int screenHeight = Toolkit.getDefaultToolkit().getScreenSize().height;
@@ -163,7 +165,7 @@ public class GradingSystem extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				newTemplateView.setVisible(false);
-				mainScreen.setVisible(true);
+				courseView.setVisible(true);
 			}
 		});
 

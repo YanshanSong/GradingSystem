@@ -20,13 +20,6 @@ public class Login extends JPanel {
 		textField.setBounds(610, 320, 180, 30);
 		add(textField);
 		textField.setColumns(10);
-
-		String imagePath = "/image/bank.png";
-		ImageIcon imageIcon = new ImageIcon(imagePath);
-		JLabel label = new JLabel();
-		label.setIcon(imageIcon);
-		label.setBounds(200, 200, 200, 200);
-		add(label);
 		
 		JLabel lblUserName = new JLabel("Username:");
 		lblUserName.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
@@ -52,6 +45,13 @@ public class Login extends JPanel {
 		changePWDButton.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
 		changePWDButton.setBounds(510, 576, 180, 50);
 		add(changePWDButton);
+		
+		JLabel imgLabel = new JLabel("");
+		imgLabel.setBounds(472, 30, 256, 256);
+		String imagePath = System.getProperty("user.dir") + "/img/bu.jpg";
+		ImageIcon imageIcon = new ImageIcon(imagePath);
+		imgLabel.setIcon(imageIcon);
+		add(imgLabel);
 	}
 
 	public JButton getLoginInButton() {

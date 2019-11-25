@@ -26,7 +26,7 @@ public class MainScreen extends JPanel {
 		setLayout(null);
 
 		String[] header1 = {"Name", "Deadline"};
-		String[][] data1 = {{"CS591", "12/13/2019"}};
+		String[][] data1 = {{"CS591 K1", "12/13/2019"}, {"CS591 E1", "12/13/2019"}, {"CS591 J1", "12/13/2019"}};
 
 		table1 = new Table(header1, data1);
 		JScrollPane jScrollPane1 = table1.generateTable();
