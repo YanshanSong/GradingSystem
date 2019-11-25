@@ -38,7 +38,7 @@ public class NewTemplateView extends JPanel {
 
 		Table table = new Table(header1, data1);
 		JScrollPane jScrollPane1 = table.generateTable();
-		jScrollPane1.setBounds(69, 161, 184, 183);
+		jScrollPane1.setBounds(69, 161, 400, 450);
 
 		add(jScrollPane1);
 		
@@ -47,36 +47,36 @@ public class NewTemplateView extends JPanel {
 
 		Table table2 = new Table(header2, data2);
 		JScrollPane jScrollPane2 = table2.generateTable();
-		jScrollPane2.setBounds(446, 156, 195, 188);
+		jScrollPane2.setBounds(800, 156, 400, 450);
 
 		add(jScrollPane2);
 
 		addTaskButton = new JButton("Add Task");
-		addTaskButton.setBounds(82, 383, 117, 29);
+		addTaskButton.setBounds(120, 650, 117, 29);
 		add(addTaskButton);
 		
 		deleteTaskButton = new JButton("Delete Task");
-		deleteTaskButton.setBounds(82, 440, 117, 29);
+		deleteTaskButton.setBounds(290, 650, 117, 29);
 		add(deleteTaskButton);
 		
 		backButton = new JButton("Back");
-		backButton.setBounds(446, 44, 117, 29);
+		backButton.setBounds(900, 44, 117, 29);
 		add(backButton);
 		
 		saveButton = new JButton("Save");
-		saveButton.setBounds(575, 44, 117, 29);
+		saveButton.setBounds(1050, 44, 117, 29);
 		add(saveButton);
 		
 		JLabel lblSubtasks = new JLabel("SubTasks");
-		lblSubtasks.setBounds(456, 103, 61, 16);
+		lblSubtasks.setBounds(800, 103, 61, 16);
 		add(lblSubtasks);
 
 		addSubtaskButton = new JButton("Add Subtask");
-		addSubtaskButton.setBounds(486, 383, 117, 29);
+		addSubtaskButton.setBounds(870, 650, 117, 29);
 		add(addSubtaskButton);
 		
-		deleteTask1Button = new JButton("Delete Task");
-		deleteTask1Button.setBounds(486, 440, 117, 29);
+		deleteTask1Button = new JButton("Delete Subtask");
+		deleteTask1Button.setBounds(1040, 650, 140, 29);
 		add(deleteTask1Button);
 
 	}
