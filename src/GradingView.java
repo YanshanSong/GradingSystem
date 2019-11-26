@@ -1,6 +1,5 @@
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;

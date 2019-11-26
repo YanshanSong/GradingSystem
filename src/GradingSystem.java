@@ -177,6 +177,14 @@ public class GradingSystem extends JFrame {
 			}
 		});
 
+		taskView.getGradeButton().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				taskView.setVisible(false);
+				gradingView.setVisible(true);
+			}
+		});
+
 	}
 
 }

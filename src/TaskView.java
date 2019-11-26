@@ -9,7 +9,9 @@ public class TaskView extends JPanel {
 	private JTextField textField;
 	private JTextField txtDec;
 
+
 	private JButton backButton;
+	private JButton gradeButton;
 
 	/**
 	 * Create the panel.
@@ -68,9 +70,9 @@ public class TaskView extends JPanel {
 		btnShowGraded.setBounds(422, 500, 117, 29);
 		add(btnShowGraded);
 		
-		JButton btnGrade = new JButton("Grade");
-		btnGrade.setBounds(800, 500, 117, 29);
-		add(btnGrade);
+		gradeButton = new JButton("Grade");
+		gradeButton.setBounds(800, 500, 117, 29);
+		add(gradeButton);
 		
 		backButton = new JButton("Back");
 		backButton.setBounds(800, 7, 117, 29);
@@ -80,5 +82,9 @@ public class TaskView extends JPanel {
 
 	public JButton getBackButton() {
 		return backButton;
+	}
+
+	public JButton getGradeButton() {
+		return gradeButton;
 	}
 }
