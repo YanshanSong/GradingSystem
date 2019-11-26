@@ -95,6 +95,22 @@ public class GradingSystem extends JFrame {
 				newTemplateView.setVisible(true);
 			}
 		});
+		
+		mainScreen.getACAddButton().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				mainScreen.setVisible(false);
+				newCourseView.setVisible(true);
+			}
+		});
+		
+		newCourseView.getBtnBack().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				newCourseView.setVisible(false);
+				mainScreen.setVisible(true);
+			}
+		});
 
 		// new task
 		courseView.getNewTaskButton().addActionListener(new ActionListener() {
