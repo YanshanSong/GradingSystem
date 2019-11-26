@@ -160,6 +160,14 @@ public class GradingSystem extends JFrame {
 				courseView.setVisible(true);
 			}
 		});
+		
+		taskView.getGradeButton().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				taskView.setVisible(false);
+				gradingView.setVisible(true);
+			}
+		});
 
 		newTemplateView.getBackButton().addActionListener(new ActionListener() {
 			@Override
@@ -174,6 +182,15 @@ public class GradingSystem extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				studentView.setVisible(false);
 				courseView.setVisible(true);
+			}
+		});
+		
+		
+		gradingView.getBtnBack().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gradingView.setVisible(false);
+				taskView.setVisible(true);
 			}
 		});
 
