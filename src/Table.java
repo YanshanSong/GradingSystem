@@ -15,11 +15,16 @@ public class Table {
     }
 
     public JScrollPane generateTable() {
-        model = new DefaultTableModel(data, header);
+        model = new DefaultTableModel(data, header) {
+            public boolean isCellEditable(int row, int column)
+            {
+                return false;
+            }
+        };
+
 		table = new JTable(model);
 		table.setGridColor(Color.BLACK);
 
-		table.setEnabled(false);
 
 		// must do: bind a JTable object to a JScrollPane object
 		JScrollPane jscrollpane = new JScrollPane();

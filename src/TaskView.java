@@ -9,9 +9,10 @@ public class TaskView extends JPanel {
 	private JTextField textField;
 	private JTextField txtDec;
 
-
 	private JButton backButton;
 	private JButton gradeButton;
+
+	private JLabel statusLabel;
 
 	/**
 	 * Create the panel.
@@ -58,9 +59,10 @@ public class TaskView extends JPanel {
 		txtDec.setBounds(208, 382, 130, 26);
 		add(txtDec);
 		
-		JLabel lblActive = new JLabel("ACTIVE");
-		lblActive.setBounds(800, 48, 89, 16);
-		add(lblActive);
+		statusLabel = new JLabel("ACTIVE");
+		statusLabel.setForeground(Color.BLUE);
+		statusLabel.setBounds(800, 48, 89, 16);
+		add(statusLabel);
 		
 		JButton btnModify = new JButton("Modify");
 		btnModify.setBounds(44, 500, 117, 29);
@@ -86,5 +88,9 @@ public class TaskView extends JPanel {
 
 	public JButton getGradeButton() {
 		return gradeButton;
+	}
+
+	public JLabel getStatusLabel() {
+		return statusLabel;
 	}
 }

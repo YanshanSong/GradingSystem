@@ -9,6 +9,7 @@ import java.awt.Color;
 
 public class GradingView extends JPanel {
 	private JTextField txtScore;
+	private JButton btnBack;
 
 	/**
 	 * Create the panel.
@@ -18,68 +19,79 @@ public class GradingView extends JPanel {
 		setLayout(null);
 		
 		JLabel lblSortingOptions = new JLabel("Sorting Options");
-		lblSortingOptions.setBounds(87, 58, 108, 16);
+		lblSortingOptions.setBounds(100, 58, 108, 16);
 		add(lblSortingOptions);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setToolTipText("");
-		comboBox.setBounds(87, 103, 108, 27);
-		add(comboBox);
+		JComboBox options = new JComboBox();
+		options.setToolTipText("");
+		options.setBounds(100, 103, 200, 27);
+		add(options);
 		
 		JLabel lblStudentList = new JLabel("Student List");
-		lblStudentList.setBounds(87, 198, 108, 16);
+		lblStudentList.setBounds(100, 198, 108, 16);
 		add(lblStudentList);
 		
 		JLabel lblFilterOptions = new JLabel("Filter Options");
-		lblFilterOptions.setBounds(87, 462, 108, 16);
+		lblFilterOptions.setBounds(100, 570, 108, 16);
 		add(lblFilterOptions);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setToolTipText("");
-		comboBox_1.setBounds(87, 490, 108, 27);
-		add(comboBox_1);
+		JComboBox filters = new JComboBox();
+		filters.addItem("Undergraduate");
+		filters.addItem("Graduate");
+		filters.setBounds(100, 600, 200, 27);
+		add(filters);
 		
 		JLabel lblName = new JLabel("Name");
-		lblName.setBounds(410, 107, 61, 16);
+		lblName.setBounds(710, 107, 61, 16);
 		add(lblName);
 		
 		JLabel lblSelectedStudent = new JLabel("Selected Student");
-		lblSelectedStudent.setBounds(410, 58, 120, 16);
+		lblSelectedStudent.setBounds(710, 58, 120, 16);
 		add(lblSelectedStudent);
 		
 		JLabel lblUid = new JLabel("UID");
-		lblUid.setBounds(410, 155, 61, 16);
+		lblUid.setBounds(710, 155, 61, 16);
 		add(lblUid);
 		
 		txtScore = new JTextField();
 		txtScore.setText("Score");
-		txtScore.setBounds(410, 193, 130, 26);
+		txtScore.setBounds(710, 193, 130, 26);
 		add(txtScore);
 		txtScore.setColumns(10);
 		
 		JTextArea txtrSomeComment = new JTextArea();
-		txtrSomeComment.setText("Some comment...");
-		txtrSomeComment.setBounds(410, 260, 210, 86);
+		txtrSomeComment.setText("Input comment...");
+		txtrSomeComment.setBounds(710, 260, 210, 200);
 		add(txtrSomeComment);
 		
 		JButton btnPrev = new JButton("Prev");
-		btnPrev.setBounds(413, 386, 99, 27);
+		btnPrev.setBounds(720, 520, 99, 27);
 		add(btnPrev);
 		
 		JButton btnNext = new JButton("Next");
-		btnNext.setBounds(524, 385, 96, 28);
+		btnNext.setBounds(830, 520, 99, 27);
 		add(btnNext);
 		
 		
-		String[] header1 = {"Name", "UID"};
-		String[][] data1 = {};
+		String[] header1 = {"Name", "UID", "Type"};
+		String[][] data1 = {
+				{"Adam", "U12345678", "Undergraduate"},
+				{"Alice", "U45674563", "Graduate"},
+				{"Yanshan Song", "U93089867", "Graduate"}
+		};
 
 		Table table = new Table(header1, data1);
 		JScrollPane jScrollPane1 = table.generateTable();
-		jScrollPane1.setBounds(87, 238, 153, 197);
+		jScrollPane1.setBounds(87, 238, 300, 300);
 
 		add(jScrollPane1);
 		
-
+		btnBack = new JButton("back");
+		btnBack.setBounds(900, 53, 117, 29);
+		add(btnBack);
+	}
+	
+	public JButton getBtnBack() {
+		return btnBack;
 	}
 }
