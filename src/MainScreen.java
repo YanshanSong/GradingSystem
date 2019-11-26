@@ -111,4 +111,8 @@ public class MainScreen extends JPanel {
 	public JButton getTViewButton() {
 		return tViewButton;
 	}
+	
+	public JButton getACAddButton() {
+		return aCAddButton;
+	}
 }
