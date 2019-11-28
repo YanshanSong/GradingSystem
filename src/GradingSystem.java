@@ -1,226 +1,94 @@
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
+import java.util.ArrayList;
 
-public class GradingSystem extends JFrame {
+public class GradingSystem {
+    private static GradingSystemBackend gradingSystemBackend;
+    private static GradingDisplay gradingDisplay;
 
-	private JPanel contentPane;
-	private Welcome welcome;
-	private Login login;
-	private MainScreen mainScreen;
-	private CourseView courseView;
-	private TaskView taskView;
-	private GradingView gradingView;
-	private NewCourseView newCourseView;
-	private NewTemplateView newTemplateView;
-	private StudentView studentView;
+    private static int height = 720;
+    private static int width = 1280;
 
-	/**
-	 * Create the frame.
-	 */
-	public GradingSystem() throws Exception {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    public static int getHeight() {
+        return height;
+    }
 
-		// javax.swing.UIManager.setLookAndFeel("com.jtattoo.plaf.mcwin.McWinLookAndFeel");
+    public static int getWidth() {
+        return width;
+    }
 
-		// set the frame centered
-		int screenWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
-		int screenHeight = Toolkit.getDefaultToolkit().getScreenSize().height;
-		int width = 1200;
-		int height = 800;
-		setBounds(screenWidth/2 - width/2, screenHeight/2 - height/2, width, height);
+    public static void start() throws Exception {
+        User user = new User("CPK", "123", 0);
+        ArrayList<User> users = new ArrayList<>();
+        String sem = "F19";
+        users.add(user);
 
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(new CardLayout(0, 0));
+        gradingSystemBackend = new GradingSystemBackend(users, "Grading System", sem);
+        gradingDisplay = new GradingDisplay(gradingSystemBackend, width, height);
+        gradingSystemBackend.login("CPK", "123");
+        gradingDisplay.user(gradingSystemBackend.getCurrentUser());
+    }
 
-		getContentPane().add(welcome = new Welcome());
-		getContentPane().add(login = new Login());
-		getContentPane().add(mainScreen = new MainScreen());
-		getContentPane().add(courseView = new CourseView());
-		getContentPane().add(taskView = new TaskView());
-		getContentPane().add(studentView = new StudentView());
-		getContentPane().add(newTemplateView = new NewTemplateView());
-		getContentPane().add(gradingView = new GradingView());
-		getContentPane().add(newCourseView = new NewCourseView());
+    public static void login_interface(){
+        gradingDisplay.login();
+    }
 
-		welcome.getLoginButton().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                welcome.setVisible(false);
-                login.setVisible(true);
+    public static void course_interface(Course course){
+        gradingDisplay.course(course);
+    }
+
+    public static void template_interface(Template template){
+        gradingDisplay.template(template, -1);
+    }
+
+    public static void template_interface(Template template, int index){
+        gradingDisplay.template(template, index);
+    }
+
+    public static void welcome(){
+        gradingDisplay.welcome();
+    }
+
+    public static boolean login(String username, String pass){
+        User user = gradingSystemBackend.login(username, pass);
+        if(user == null) return false;
+        gradingDisplay.user(user);
+        return true;
+    }
+
+    public static void changePassword_interface(){
+
+    }
+
+    public static void tableButtonPress(String actionCommand, JTable jTable) {
+
+    }
+
+    public static void buttonPress(String command){
+
+    }
+
+    public static void cardPress(String command){
+        if(command.contains("Course")){
+            String code = command.replace("Course-", "");
+            ArrayList<Course> courses = gradingSystemBackend.getCurrentUser().getCourses();
+            Course select = null;
+            for(Course course: courses){
+                if(course.getCode().equals(code)){
+                    select = course;
+                    break;
+                }
             }
-        });
-
-		login.getLoginInButton().addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				login.setVisible(false);
-				mainScreen.setVisible(true);
-			}
-		});
-
-		mainScreen.getLogOutButton().addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				mainScreen.setVisible(false);
-				login.setVisible(true);
-			}
-		});
-
-		mainScreen.getACViewButton().addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				mainScreen.setVisible(false);
-				courseView.setVisible(true);
-			}
-		});
-
-		mainScreen.getPCViewButton().addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				mainScreen.setVisible(false);
-				courseView.setVisible(true);
-			}
-		});
-
-		mainScreen.getTViewButton().addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				mainScreen.setVisible(false);
-				newTemplateView.setVisible(true);
-			}
-		});
-		
-		mainScreen.getACAddButton().addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				mainScreen.setVisible(false);
-				newCourseView.setVisible(true);
-			}
-		});
-		
-		newCourseView.getBtnBack().addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				newCourseView.setVisible(false);
-				mainScreen.setVisible(true);
-			}
-		});
-
-		// new task
-		courseView.getNewTaskButton().addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				courseView.setVisible(false);
-				newTemplateView.setVisible(true);
-			}
-		});
-
-		courseView.getBackButton().addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				courseView.setVisible(false);
-				mainScreen.setVisible(true);
-			}
-		});
-
-		courseView.getATViewButton().addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				courseView.setVisible(false);
-				taskView.getStatusLabel().setText("Active");
-				taskView.setVisible(true);
-			}
-		});
-
-		courseView.getPTViewButton().addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				courseView.setVisible(false);
-				taskView.getStatusLabel().setText("Past");
-				taskView.setVisible(true);
-			}
-		});
-
-		courseView.getATViewButton().addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				courseView.setVisible(false);
-				taskView.setVisible(true);
-			}
-		});
-
-		courseView.getUTViewButton().addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				courseView.setVisible(false);
-				taskView.getStatusLabel().setText("Upcoming");
-				taskView.setVisible(true);
-			}
-		});
-
-		courseView.getStudentsButton().addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				courseView.setVisible(false);
-				studentView.setVisible(true);
-			}
-		});
-
-		taskView.getBackButton().addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				taskView.setVisible(false);
-				courseView.setVisible(true);
-			}
-		});
-		
-		taskView.getGradeButton().addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				taskView.setVisible(false);
-				gradingView.setVisible(true);
-			}
-		});
-
-		newTemplateView.getBackButton().addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				newTemplateView.setVisible(false);
-				courseView.setVisible(true);
-			}
-		});
-
-		studentView.getBackButton().addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				studentView.setVisible(false);
-				courseView.setVisible(true);
-			}
-		});
-		
-		
-		gradingView.getBtnBack().addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				gradingView.setVisible(false);
-				taskView.setVisible(true);
-			}
-		});
-
-		taskView.getGradeButton().addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				taskView.setVisible(false);
-				gradingView.setVisible(true);
-			}
-		});
-
-	}
-
+            course_interface(select);
+        }
+        else if(command.startsWith("Template")){
+            int index = command.lastIndexOf("-");
+            index = Integer.parseInt(command.substring(index + 1));
+            template_interface(gradingSystemBackend.getCurrentUser().getTemplates().get(index));
+        }
+        else if(command.startsWith("Tasks-")){
+            String[] strings = command.split("-");
+            Template template = gradingSystemBackend.getCurrentUser().getTemplates().get(Integer.parseInt(strings[1]));
+            template_interface(template, Integer.parseInt(strings[2]));
+        }
+    }
 }

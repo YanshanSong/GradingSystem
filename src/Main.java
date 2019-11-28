@@ -4,16 +4,17 @@ public class Main {
     /**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GradingSystem frame = new GradingSystem();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+	public static void main(String[] args) throws Exception {
+		GradingSystem.start();
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					GradingDisplay frame = new GradingDisplay();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
 	}
 }
