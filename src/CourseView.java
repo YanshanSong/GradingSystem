@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class CourseView extends JPanel {
+	private JLabel courseLabel;
+
 	private JButton newTaskButton;
 	private JButton starsButton;
 	private JButton studentsButton;
@@ -18,6 +20,8 @@ public class CourseView extends JPanel {
 	private Table table2;
 	private Table table3;
 
+
+
 	/**
 	 * Create the panel.
 	 */
@@ -25,6 +29,12 @@ public class CourseView extends JPanel {
 		setBackground(Color.WHITE);
 		setBounds(0, 0, 1200, 800);
 		setLayout(null);
+
+		courseLabel = new JLabel("CS591");
+		courseLabel.setFont(new Font("Lucida Grande", Font.BOLD | Font.ITALIC, 18));
+		courseLabel.setForeground(Color.RED);
+		courseLabel.setBounds(50, 25, 171, 22);
+		add(courseLabel);
 
 		String[] header1 = {"Name", "Deadline"};
 		String[][] data1 = {{"HW4", "12/20/2019"}};
@@ -107,6 +117,7 @@ public class CourseView extends JPanel {
 		uTDeleteButton = new JButton("Delete");
 		uTDeleteButton.setBounds(941, 700, 117, 29);
 		add(uTDeleteButton);
+
 	}
 
 	public JButton getNewTaskButton() {

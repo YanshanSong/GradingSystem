@@ -29,8 +29,8 @@ public class TaskView extends JPanel {
 		lblObjective.setBounds(49, 123, 122, 16);
 		add(lblObjective);
 		
-		JLabel lblMasks = new JLabel("Masks:");
-		lblMasks.setBounds(49, 203, 71, 16);
+		JLabel lblMasks = new JLabel("Task name:");
+		lblMasks.setBounds(49, 203, 98, 16);
 		add(lblMasks);
 		
 		JLabel lblWeightage = new JLabel("Weightage:");

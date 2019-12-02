@@ -49,22 +49,22 @@ public class MainScreen extends JPanel {
 		jScrollPane3.setBounds(850, 150, 300, 500);
 		add(jScrollPane3);
 		
-		JLabel label1 = new JLabel("Active Course");
+		JLabel label1 = new JLabel("Active Courses");
 		label1.setForeground(Color.BLUE);
 		label1.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
-		label1.setBounds(141, 100, 118, 25);
+		label1.setBounds(136, 100, 128, 25);
 		add(label1);
 		
-		JLabel label2 = new JLabel("Past Course");
+		JLabel label2 = new JLabel("Past Courses");
 		label2.setForeground(Color.BLUE);
 		label2.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
-		label2.setBounds(549, 100, 102, 25);
+		label2.setBounds(543, 100, 114, 25);
 		add(label2);
 		
-		JLabel label3 = new JLabel("Template");
+		JLabel label3 = new JLabel("Templates");
 		label3.setForeground(Color.BLUE);
 		label3.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
-		label3.setBounds(960, 100, 81, 25);
+		label3.setBounds(955, 100, 90, 25);
 		add(label3);
 		
 		logOutButton = new JButton("Log Out");
