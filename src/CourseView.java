@@ -20,8 +20,6 @@ public class CourseView extends JPanel {
 	private Table table2;
 	private Table table3;
 
-
-
 	/**
 	 * Create the panel.
 	 */
