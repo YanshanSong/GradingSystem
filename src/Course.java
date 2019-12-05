@@ -5,15 +5,15 @@ public class Course{
     private ArrayList<Student> students;
     private String code;
     private String sem;
-    private Template template;
+    private ArrayList<Task> tasks;
     private boolean active;
 
-    public Template getTemplate() {
-        return template;
+    public void setTemplate(Template template){
+        tasks = template.getTasks();
     }
 
-    public void setTemplate(Template template) {
-        this.template = template;
+    public ArrayList<Task> getTasks(){
+        return tasks;
     }
 
     Course(String name, ArrayList<Student> students, String code, String sem, Template template){
@@ -22,7 +22,8 @@ public class Course{
         this.code = code;
         this.sem = sem;
         this.active = true;
-        this.template = template;
+        this.tasks = new ArrayList<>();
+        this.tasks.addAll(template.getTasks());
     }
 
     public String getSem() {

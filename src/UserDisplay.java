@@ -35,7 +35,7 @@ public class UserDisplay{
 	}
 
 	public UserDisplay(User user) {
-		String[] top_buttons = new String[]{"Back", "Logout"};
+		String[] top_buttons = new String[]{"Logout"};
 		components = new ArrayList<>();
 		strings = new ArrayList<>();
 
@@ -45,7 +45,9 @@ public class UserDisplay{
 		top.add(jLabel, BorderLayout.LINE_START);
 
 		ActionListener actionListener = actionEvent -> {
-			GradingSystem.buttonPress(actionEvent.getActionCommand());
+			if(actionEvent.getActionCommand().equals("Logout")){
+				GradingSystem.logout();
+			}
 		};
 
 		ArrayList<Component> comps = new ArrayList<>();

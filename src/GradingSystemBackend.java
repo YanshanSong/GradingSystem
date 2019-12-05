@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -43,6 +44,14 @@ public class GradingSystemBackend {
         currentUser.getTemplates().get(template_id).getTasks().get(id).getSubTasks().remove(index);
     }
 
+    public void deleteCourseTask(Course course, int id){
+        course.getTasks().remove(id);
+    }
+
+    public void deleteCourseSubTask(Course course, int id, int index){
+        course.getTasks().get(id).getSubTasks().remove(index);
+    }
+
     public User login(String username, String pass){
         for(User user: this.users){
             if(user.getUsername().equals(username) && user.getPass().equals(pass)) {
@@ -53,8 +62,20 @@ public class GradingSystemBackend {
         return null;
     }
 
+    public void logout(){
+        currentUser = null;
+    }
+
     public void newTask(int template_id){
         currentUser.getTemplates().get(template_id).newTask();
+    }
+
+    public void newCourseTask(Course course){
+        course.getTasks().add(new Task());
+    }
+
+    public void newCourseSubTask(Course course, int index){
+        course.getTasks().get(index).getSubTasks().add(new Task());
     }
 
     public void newSubTask(int template_id, int index){
@@ -69,6 +90,14 @@ public class GradingSystemBackend {
         Template template = currentUser.getTemplates().get(template_id);
         template.setTasks(tasks);
         if(index > -1) template.getTasks().get(index).setSubTasks(subTasks);
+    }
+
+    public void updateCourseTemplate(Course course, int index, ArrayList<Task> tasks, ArrayList<Task> subTasks){
+        Template template = new Template(currentUser.getTemplates().size());
+        template.setTasks(tasks);
+        if(index > -1) template.getTasks().get(index).setSubTasks(subTasks);
+        course.setTemplate(template);
+        currentUser.getTemplates().add(template);
     }
 
     GradingSystemBackend(ArrayList<User> users, String name, String sem){

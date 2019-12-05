@@ -33,7 +33,7 @@ public class CourseDisplay{
 	}
 
 	public CourseDisplay(Course course) {
-		String[] top_buttons = new String[]{"Back", "Logout"};
+		String[] top_buttons = new String[]{"Modify Course", "Back"};
 		components = new ArrayList<>();
 		strings = new ArrayList<>();
 
@@ -43,7 +43,12 @@ public class CourseDisplay{
 		top.add(jLabel, BorderLayout.LINE_START);
 
 		ActionListener actionListener = actionEvent -> {
-			GradingSystem.buttonPress(actionEvent.getActionCommand());
+			if(actionEvent.getActionCommand().equals("Back")){
+				GradingSystem.user_interface();
+			}
+			else if(actionEvent.getActionCommand().equals("Modify Course")){
+				GradingSystem.course_template_interface(course);
+			}
 		};
 
 		ArrayList<Component> comps = new ArrayList<>();
@@ -59,7 +64,7 @@ public class CourseDisplay{
 		strings.add("Active Taks");
 		strings.add("Past Tasks");
 		strings.add("Upcoming Tasks");
-		ArrayList<Task> tasks = course.getTemplate().getTasks();
+		ArrayList<Task> tasks = course.getTasks();
 
 		ArrayList<Task> active = new ArrayList<>();
 		ArrayList<Task> past = new ArrayList<>();

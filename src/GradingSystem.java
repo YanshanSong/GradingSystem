@@ -33,6 +33,14 @@ public class GradingSystem {
         gradingDisplay.login();
     }
 
+    public static void user_interface(){
+        gradingDisplay.user(gradingSystemBackend.getCurrentUser());
+    }
+
+    public static void course_template_interface(Course course){
+        gradingDisplay.modify_course(course, -1);
+    }
+
     public static void course_interface(Course course){
         gradingDisplay.course(course);
     }
@@ -51,6 +59,10 @@ public class GradingSystem {
 
     public static void updateTemplate(int index, int template_id, ArrayList<Task> tasks, ArrayList<Task> subTasks){
         gradingSystemBackend.updateTemplate(index, template_id, tasks, subTasks);
+    }
+
+    public static void updateCourseTemplate(Course course, int index, ArrayList<Task> tasks, ArrayList<Task> subTasks){
+        gradingSystemBackend.updateCourseTemplate(course, index, tasks, subTasks);
     }
 
     public static boolean login(String username, String pass){
@@ -72,6 +84,19 @@ public class GradingSystem {
         gradingSystemBackend.newTask(id);
     }
 
+    public static void newCourseTask(Course course){
+        gradingSystemBackend.newCourseTask(course);
+    }
+
+    public static void newCourseSubTask(Course course, int index){
+        gradingSystemBackend.newCourseSubTask(course, index);
+    }
+
+    public static void logout(){
+        gradingSystemBackend.logout();
+        gradingDisplay.login();
+    }
+
     public static void newSubTask(int id, int index){
         gradingSystemBackend.newSubTask(id, index);
     }
@@ -82,6 +107,14 @@ public class GradingSystem {
 
     public static void deleteSubTask(int template_id, int id, int index){
         gradingSystemBackend.deleteSubTask(template_id, id, index);
+    }
+
+    public static void deleteCourseTask(Course course, int id){
+        gradingSystemBackend.deleteCourseTask(course, id);
+    }
+
+    public static void deleteCourseSubTask(Course course, int id, int index){
+        gradingSystemBackend.deleteCourseSubTask(course, id, index);
     }
 
     public static void buttonPress(String command){

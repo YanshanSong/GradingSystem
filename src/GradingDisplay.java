@@ -81,6 +81,7 @@ public class GradingDisplay extends JFrame {
     }
 
     public void template(Template template, int index){
+        System.out.println(index);
         TemplateDisplay templateDisplay = new TemplateDisplay(template, index);
         this.changeDisplay(templateDisplay);
     }
@@ -89,6 +90,11 @@ public class GradingDisplay extends JFrame {
         CourseDisplay courseDisplay = new CourseDisplay(course);
         TabbedDisplay tabbedDisplay = new TabbedDisplay(courseDisplay.getComponents(), courseDisplay.getStrings(), courseDisplay.getTop());
         this.changeDisplay(tabbedDisplay);
+    }
+
+    public void modify_course(Course course, int index){
+        CourseTemplateDisplay courseTemplateDisplay = new CourseTemplateDisplay(course, index);
+        this.changeDisplay(courseTemplateDisplay);
     }
     /**
      * Create the frame.
