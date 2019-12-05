@@ -16,6 +16,10 @@ public class GradingSystemBackend {
         this.currentUser = currentUser;
     }
 
+    public void newCourse(Template template, String name, String code, String sem){
+        currentUser.getCourses().add(new Course(name, new ArrayList<>(), code, sem, template));
+    }
+
     public String getSem() {
         return sem;
     }
@@ -44,6 +48,10 @@ public class GradingSystemBackend {
         currentUser.getTemplates().get(template_id).getTasks().get(id).getSubTasks().remove(index);
     }
 
+    public void newCourse(){
+//        currentUser.getCourses().add(new Course());
+    }
+
     public void deleteCourseTask(Course course, int id){
         course.getTasks().remove(id);
     }
@@ -68,6 +76,13 @@ public class GradingSystemBackend {
 
     public void newTask(int template_id){
         currentUser.getTemplates().get(template_id).newTask();
+    }
+
+    public Course newCourseEmpty(String name, String code, String sem){
+        Template template = new Template(currentUser.getTemplates().size());
+        Course course = new Course(name, new ArrayList<>(), code, sem, template);
+        currentUser.getCourses().add(course);
+        return course;
     }
 
     public void newCourseTask(Course course){

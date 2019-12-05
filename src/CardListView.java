@@ -58,7 +58,7 @@ public class CardListView extends JPanel {
     };
 
 
-    public void templateCards(ArrayList<Template> templates, String[] options, String prefix){
+    public void templateCards(ArrayList<Template> templates, String[] options, String prefix, int height, int width, MouseAdapter mouseAdapter){
         this.setLayout(new BorderLayout());
         JPanel root = new JPanel(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
@@ -77,17 +77,19 @@ public class CardListView extends JPanel {
                 jPanel.add(new JLabel(s), c_sub);
                 c_sub.gridy += 1;
             }
-            jPanel.addMouseListener(mouseAdapter);
+            if(mouseAdapter == null) jPanel.addMouseListener(this.mouseAdapter);
+            else jPanel.addMouseListener(mouseAdapter);
             jPanel.setBorder(blackline);
             jPanel.setBackground(Color.WHITE);
             jPanel.setName(prefix + i);
             jPanel.setCursor(new Cursor(Cursor.HAND_CURSOR));
-            jPanel.setPreferredSize(new Dimension((int) (GradingSystem.getWidth() * 0.9), 100));
+            jPanel.setPreferredSize(new Dimension(width, 100));
             root.add(jPanel, c);
+            i++;
             c.gridy += 1;
         }
         JScrollPane jScrollPane = new JScrollPane(root, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane.setPreferredSize(new Dimension((int) (GradingSystem.getWidth() * 0.9), (int) (GradingSystem.getHeight() * 0.7)));
+        jScrollPane.setPreferredSize(new Dimension(width, height));
         this.add(jScrollPane, BorderLayout.PAGE_START);
         scrollPane = jScrollPane;
 

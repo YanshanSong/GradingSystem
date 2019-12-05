@@ -80,9 +80,11 @@ public class UserDisplay{
 		pastCourses.courseCards(past, options, "Course-");
 		components.add(pastCourses);
 
-		options = new String[]{"Add Template", "Modify Template", "Delele Template"};
+		options = new String[]{"Add Template", "Modify Template", "Delete Template"};
 		CardListView templates = new CardListView();
-		templates.templateCards(user.getTemplates(), options, "Template-");
+		int height = (int) (GradingSystem.getHeight() * 0.7);
+		int width = (int) (GradingSystem.getWidth() * 0.9);
+		templates.templateCards(user.getTemplates(), options, "Template-", height, width, null);
 		components.add(templates);
 	}
 }

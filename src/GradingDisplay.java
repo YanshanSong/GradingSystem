@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
@@ -95,6 +96,11 @@ public class GradingDisplay extends JFrame {
     public void modify_course(Course course, int index){
         CourseTemplateDisplay courseTemplateDisplay = new CourseTemplateDisplay(course, index);
         this.changeDisplay(courseTemplateDisplay);
+    }
+
+    public void new_course(ArrayList<Template> templates){
+        NewCourseDisplay newCourseDisplay = new NewCourseDisplay(templates);
+        this.changeDisplay(newCourseDisplay);
     }
     /**
      * Create the frame.

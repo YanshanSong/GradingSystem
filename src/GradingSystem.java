@@ -97,6 +97,16 @@ public class GradingSystem {
         gradingDisplay.login();
     }
 
+    public static void newCourseEmpty(String name, String code, String sem){
+        Course course = gradingSystemBackend.newCourseEmpty(name, code, sem);
+        gradingDisplay.modify_course(course, -1);
+    }
+
+    public static void newCourse(Template template, String name, String code, String sem){
+        gradingSystemBackend.newCourse(template, name, code, sem);
+        gradingDisplay.user(gradingSystemBackend.getCurrentUser());
+    }
+
     public static void newSubTask(int id, int index){
         gradingSystemBackend.newSubTask(id, index);
     }
@@ -118,6 +128,10 @@ public class GradingSystem {
     }
 
     public static void buttonPress(String command){
+        if(command.equals("Add Course")){
+            gradingDisplay.new_course(gradingSystemBackend.getCurrentUser().getTemplates());
+            gradingSystemBackend.newCourse();
+        }
     }
 
     public static void cardPress(String command){

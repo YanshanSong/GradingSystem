@@ -78,7 +78,10 @@ public class TemplateDisplay extends JPanel{
     private ActionListener actionListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if(e.getActionCommand().contains("Add Task")){
+            if(e.getActionCommand().equals("Back")){
+                GradingSystem.user_interface();
+            }
+            else if(e.getActionCommand().contains("Add Task")){
                 String[] sp = e.getActionCommand().split(":")[1].split("-");
                 int template_id = Integer.parseInt(sp[1]);
                 if(sp[0].equals("Tasks")){
