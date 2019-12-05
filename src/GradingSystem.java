@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class GradingSystem {
     private static GradingSystemBackend gradingSystemBackend;
@@ -48,6 +49,10 @@ public class GradingSystem {
         gradingDisplay.welcome();
     }
 
+    public static void updateTemplate(int index, int template_id, ArrayList<Task> tasks, ArrayList<Task> subTasks){
+        gradingSystemBackend.updateTemplate(index, template_id, tasks, subTasks);
+    }
+
     public static boolean login(String username, String pass){
         User user = gradingSystemBackend.login(username, pass);
         if(user == null) return false;
@@ -63,8 +68,23 @@ public class GradingSystem {
 
     }
 
-    public static void buttonPress(String command){
+    public static void newTask(int id){
+        gradingSystemBackend.newTask(id);
+    }
 
+    public static void newSubTask(int id, int index){
+        gradingSystemBackend.newSubTask(id, index);
+    }
+
+    public static void deleteTask(int template_id, int id){
+        gradingSystemBackend.deleteTask(template_id, id);
+    }
+
+    public static void deleteSubTask(int template_id, int id, int index){
+        gradingSystemBackend.deleteSubTask(template_id, id, index);
+    }
+
+    public static void buttonPress(String command){
     }
 
     public static void cardPress(String command){
@@ -80,12 +100,12 @@ public class GradingSystem {
             }
             course_interface(select);
         }
-        else if(command.startsWith("Template")){
+        else if(command.contains("Template")){
             int index = command.lastIndexOf("-");
             index = Integer.parseInt(command.substring(index + 1));
             template_interface(gradingSystemBackend.getCurrentUser().getTemplates().get(index));
         }
-        else if(command.startsWith("Tasks-")){
+        else if(command.contains("Tasks-")){
             String[] strings = command.split("-");
             Template template = gradingSystemBackend.getCurrentUser().getTemplates().get(Integer.parseInt(strings[1]));
             template_interface(template, Integer.parseInt(strings[2]));

@@ -20,6 +20,10 @@ public class Template {
         this.tasks = tasks;
     }
 
+    public void newTask(){
+        this.tasks.add(new Task());
+    }
+
     public ArrayList<String> summary(){
         ArrayList<String> summaries = new ArrayList<>();
         for(Task task: tasks){

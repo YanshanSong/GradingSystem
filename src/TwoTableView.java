@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class TwoTableView extends JPanel {
 
-    TwoTableView(CardListView left, CardListView right, String title, String[] options){
+    TwoTableView(CardListView left, CardListView right, String title, ArrayList<Component> options){
         this.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.HORIZONTAL;
@@ -13,14 +13,9 @@ public class TwoTableView extends JPanel {
         JPanel top = new JPanel(new BorderLayout());
         top.add(new JLabel(title), BorderLayout.LINE_START);
 
-        ArrayList<Component> components = new ArrayList<>();
-        for(String s: options){
-            JButton jButton = new JButton(s);
-//            jButton.addActionListener(actionListener);
-            components.add(jButton);
-        }
-
+        ArrayList<Component> components = new ArrayList<>(options);
         ButtonOptions buttonOptions = new ButtonOptions(components);
+
         top.add(buttonOptions, BorderLayout.LINE_END);
 
         c.anchor = GridBagConstraints.PAGE_START;

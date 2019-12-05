@@ -9,6 +9,14 @@ public class GradingDisplay extends JFrame {
     private int height;
     private JPanel rootPanel;
 
+    public JPanel getRootPanel() {
+        return rootPanel;
+    }
+
+    public void setRootPanel(JPanel rootPanel) {
+        this.rootPanel = rootPanel;
+    }
+
     public static FocusListener focusListenerText = new FocusListener() {
         @Override
         public void focusGained(FocusEvent focusEvent) {
@@ -74,8 +82,7 @@ public class GradingDisplay extends JFrame {
 
     public void template(Template template, int index){
         TemplateDisplay templateDisplay = new TemplateDisplay(template, index);
-        TwoTableView twoTableView = new TwoTableView(templateDisplay.getLeft(), templateDisplay.getRight(), "Template", templateDisplay.getOptions());
-        this.changeDisplay(twoTableView);
+        this.changeDisplay(templateDisplay);
     }
 
     public void course(Course course){

@@ -9,19 +9,20 @@ import java.util.ArrayList;
 
 public class CardListView extends JPanel {
 
+    JScrollPane scrollPane;
+
     private ActionListener actionListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
-//            int pos = jTable.getSelectedRow();
-//            title.setText(title.getName());
-//            if(pos < 0 && (!actionEvent.getActionCommand().contains("Pay")
-//                    && !actionEvent.getActionCommand().contains("Request")
-//                    && !actionEvent.getActionCommand().contains("Get Report"))){
-//                title.setText("Please select a row");
-//            }
-//            else GradingSystem.tableButtonPress(actionEvent.getActionCommand(), jTable);
+            GradingSystem.buttonPress(actionEvent.getActionCommand());
         }
     };
+
+    public JScrollPane getScrollPane(){
+        return scrollPane;
+    }
+
+
 
     private MouseAdapter mouseAdapter = new MouseAdapter() {
         @Override
@@ -88,6 +89,7 @@ public class CardListView extends JPanel {
         JScrollPane jScrollPane = new JScrollPane(root, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane.setPreferredSize(new Dimension((int) (GradingSystem.getWidth() * 0.9), (int) (GradingSystem.getHeight() * 0.7)));
         this.add(jScrollPane, BorderLayout.PAGE_START);
+        scrollPane = jScrollPane;
 
         JPanel buttons = new JPanel();
         buttons.setLayout(new FlowLayout());
@@ -126,6 +128,7 @@ public class CardListView extends JPanel {
         JScrollPane jScrollPane = new JScrollPane(root, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane.setPreferredSize(new Dimension((int) (GradingSystem.getWidth() * 0.9), (int) (GradingSystem.getHeight() * 0.7)));
         this.add(jScrollPane, BorderLayout.PAGE_START);
+        scrollPane = jScrollPane;
 
         JPanel buttons = new JPanel();
         buttons.setLayout(new FlowLayout());
@@ -140,7 +143,8 @@ public class CardListView extends JPanel {
         }
     }
 
-    public void taskCards(ArrayList<Task> tasks, String prefix, String[] options){
+    public ArrayList<ArrayList<JTextField>> taskCards(ArrayList<Task> tasks, String prefix, String[] options, ActionListener actionListener, MouseAdapter mouseAdapter){
+        this.removeAll();
         this.setLayout(new BorderLayout());
         JPanel root = new JPanel(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
@@ -148,34 +152,55 @@ public class CardListView extends JPanel {
         c.gridy = 0;
         c.gridx = 0;
         Border blackline = BorderFactory.createLineBorder(Color.black);
+        ArrayList<ArrayList<JTextField>> texts = new ArrayList<>();
+        if(tasks == null) tasks = new ArrayList<>();
         for(Task task: tasks){
-            JPanel jPanel = new JPanel(new BorderLayout());
-            jPanel.add(new JLabel(task.getName()), BorderLayout.PAGE_START);
-            jPanel.add(new JLabel(String.valueOf(task.getWeight())), BorderLayout.PAGE_END);
+            JPanel jPanel = new JPanel(new GridBagLayout());
+            jPanel.setPreferredSize(new Dimension((int) (GradingSystem.getWidth() * 0.4), 100));
+            GridBagConstraints c_sub = new GridBagConstraints();
+            c_sub.fill = GridBagConstraints.PAGE_START;
+            JTextField name = new JTextField(20);
+            name.setName(task.getName());
+            name.setText(task.getName());
+            name.addFocusListener(GradingDisplay.focusListenerText);
+            JTextField weight = new JTextField(20);
+            weight.setName(String.valueOf(task.getWeight()));
+            weight.setText(String.valueOf(task.getWeight()));
+            weight.addFocusListener(GradingDisplay.focusListenerText);
+            ArrayList<JTextField> arrayList = new ArrayList<>();
+            arrayList.add(name);
+            arrayList.add(weight);
+            texts.add(arrayList);
+            c_sub.gridx = 0;
+            c_sub.gridy = 0;
+            jPanel.add(name, c_sub);
+            c_sub.gridy += 1;
+            jPanel.add(weight, c_sub);
             jPanel.addMouseListener(mouseAdapter);
             jPanel.setBorder(blackline);
             jPanel.setBackground(Color.WHITE);
             jPanel.setName(prefix + tasks.indexOf(task));
             jPanel.setCursor(new Cursor(Cursor.HAND_CURSOR));
-            jPanel.setPreferredSize(new Dimension((int) (GradingSystem.getWidth() * 0.9), 100));
             root.add(jPanel, c);
             c.gridy += 1;
         }
         JScrollPane jScrollPane = new JScrollPane(root, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane.setPreferredSize(new Dimension((int) (GradingSystem.getWidth() * 0.9), (int) (GradingSystem.getHeight() * 0.7)));
-        this.add(jScrollPane, BorderLayout.NORTH);
+        jScrollPane.setPreferredSize(new Dimension((int) (GradingSystem.getWidth() * 0.9), (int) (GradingSystem.getHeight() * 0.6)));
+        this.add(jScrollPane, BorderLayout.PAGE_START);
+        scrollPane = jScrollPane;
 
         JPanel buttons = new JPanel();
         buttons.setLayout(new FlowLayout());
         if(options != null){
             for(String s: options){
                 JButton jButton = new JButton(s);
-                jButton.setActionCommand(s);
+                jButton.setActionCommand(s + ":" + prefix);
                 jButton.addActionListener(actionListener);
                 buttons.add(jButton);
             }
-            this.add(buttons, BorderLayout.SOUTH);
         }
+        this.add(buttons, BorderLayout.PAGE_END);
+        return texts;
     }
 
     public void taskCards(ArrayList<Task> tasks, String prefix){
@@ -202,5 +227,6 @@ public class CardListView extends JPanel {
         JScrollPane jScrollPane = new JScrollPane(root, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane.setPreferredSize(new Dimension((int) (GradingSystem.getWidth() * 0.9), (int) (GradingSystem.getHeight() * 0.7)));
         this.add(jScrollPane, BorderLayout.PAGE_START);
+        scrollPane = jScrollPane;
     }
 }

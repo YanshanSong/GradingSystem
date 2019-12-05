@@ -48,16 +48,24 @@ public class Task {
         this.sum = sum;
     }
 
+    public Task(){
+        this.weight = 0;
+        this.name = "Name";
+        this.subTasks = new ArrayList<>();
+    }
+
     public Task(float weight, String name){
         this.weight = weight;
         this.deadline = null;
         this.name = name;
+        this.subTasks = new ArrayList<>();
     }
 
     public Task(float weight, String name, Date deadline){
         this.weight = weight;
         this.name = name;
         this.deadline = deadline;
+        this.subTasks = new ArrayList<>();
     }
 
     public boolean isValid(){
