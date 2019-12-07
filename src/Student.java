@@ -12,4 +12,12 @@ public class Student {
         this.name = attrs[0];
         this.id = attrs[1];
     }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public String getid(){
+        return this.id;
+    }
 }

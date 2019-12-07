@@ -17,6 +17,18 @@ public class StudentList {
             this.students.add(new_student);
         }
     }
+
+    StudentList(ArrayList<Student> list){
+        this.students = list;
+    }
+
+    public void setList(ArrayList<Student> list){
+        this.students = list;
+    }
+
+    public ArrayList<Student> getList(){
+        return this.students;
+    }
 }
 
 
